@@ -1,0 +1,6 @@
+# Pre-pilot: keep the site out of search results and scrapers
+# until the team is ready to publish verified numbers.
+# When you go live, delete this file (or replace with "Allow: /")
+# AND flip robots.index to true in app/layout.tsx.
+User-agent: *
+Disallow: /
