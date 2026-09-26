@@ -1,1 +1,9 @@
-
+# Pre-pilot: blocked from search engines and scrapers until verified
+# traction numbers exist and the team is ready to publish publicly.
+#
+# When going live:
+#   1. Delete this file (or replace Disallow: / with Allow: /)
+#   2. Set robots.index = true in app/layout.tsx
+#   3. Submit sitemap to Google Search Console
+User-agent: *
+Disallow: /
