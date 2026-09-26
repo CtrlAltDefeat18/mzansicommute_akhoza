@@ -1,0 +1,29 @@
+name = "mzansimove-web"
+main = "dist/_worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Static assets — everything in dist/client/ gets served directly by Cloudflare
+# before the request reaches the worker. Includes public/_headers rules.
+[assets]
+directory = "dist/client"
+binding = "ASSETS"
+
+# Cloudflare D1 database — replace the placeholder database_id with the real
+# one after you run: wrangler d1 create mzansimove-db
+# Then run: npm run db:migrate (see package.json)
+[[d1_databases]]
+binding = "DB"
+database_name = "mzansimove-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# Image optimisation binding — provided automatically by Cloudflare Workers
+# when the account has it enabled. The worker checks for its presence before
+# using it, so the site still works if it is not available.
+# [ai]
+# binding = "IMAGES"
+
+# Environment variables — secrets go in wrangler.toml only for non-sensitive
+# values. Actual secrets (RESEND_API_KEY etc.) use: wrangler secret put KEY
+[vars]
+SITE_ENV = "production"
