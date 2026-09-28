@@ -11,6 +11,8 @@
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck && npm run test",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "wrangler d1 migrations apply mzansimove-db --local",
     "db:migrate:prod": "wrangler d1 migrations apply mzansimove-db --remote",
