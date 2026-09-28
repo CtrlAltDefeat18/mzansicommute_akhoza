@@ -1,72 +1,86 @@
-MzansiMove web project
-======================
+# MzansiCommute web
 
-MzansiMove is a pre pilot mobility venture led by Ayanda Khoza.
+MzansiCommute is a pre-pilot mobility data venture focused on South Africa's minibus taxi economy.
 
-The first pilot is planned for Makhanda in the Eastern Cape.
+This repository contains the public-facing landing page and pilot-interest flow. The site is intended to establish trust with taxi owners and associations, insurers and financial-services partners, and research/public-sector partners.
 
-The route, operational partners and verified traction are still to be confirmed.
+## Product status
 
-Google Cloud Shell setup
-========================
+The venture is pre-pilot and pre-revenue.
 
-Upload the packaged tar file to Google Cloud Shell.
+Any scorecard or traction number on the site must be clearly labelled as a target, verified result, or sourced published statistic. Do not present pilot targets as achieved traction.
 
-Open the Cloud Shell terminal and extract the archive.
+Founder-identifying information is intentionally excluded from the public site and repository. See `AGENTS.md` before changing copy, imagery, backing information, or public contact details.
+
+## Stack
+
+- Next.js App Router / React
+- vinext + Vite
+- Cloudflare Workers
+- Cloudflare D1
+- Drizzle ORM
+- TypeScript
+- ESLint with jsx-a11y
+- Tailwind 4 through PostCSS, with authored site classes in `app/globals.css`
+
+Some infrastructure identifiers still use the previous `mzansimove-*` naming. Do not rename Worker, D1, binding, deployment, or domain identifiers as part of a cosmetic brand cleanup.
+
+## Local development
+
+Requirements:
+- Node.js 22.13 or newer
+- npm
+
+Install and run:
 
 ```bash
-tar -xzf MzansiMove_Cloud_Shell.tar.gz
-cd mzansimove
 npm ci
 npm run dev
 ```
 
-Cloud Shell will print a local port, normally port 3000.
+## Quality checks
 
-Use the Web preview menu and select Preview on port 3000.
-
-Editing workflow
-================
-
-Open the Cloud Shell editor from the toolbar.
-
-The main page content is in app/page.tsx.
-
-The design system is in app/globals.css.
-
-Site metadata is in app/layout.tsx.
-
-Changes should refresh automatically while the development server runs.
-
-Validation
-==========
-
-Run the production build before sharing or deploying changes.
+Before opening or merging a PR:
 
 ```bash
+npm run check
+```
+
+This runs linting, TypeScript checking, a production build, and the repository tests.
+
+Individual commands:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
 npm run build
 ```
 
-Current product status
-======================
+GitHub Actions runs the baseline quality workflow for pull requests and pushes to `main`.
 
-The website is a pre pilot portfolio and landing page.
+## Database
 
-Its scorecard values are labelled as targets rather than verified traction.
+The contact form stores submissions in Cloudflare D1 through Drizzle ORM.
 
-The contact form is a front end prototype and does not yet send messages.
+```bash
+npm run db:generate
+npm run db:migrate
+npm run db:migrate:prod
+```
 
-Founder inputs still needed
-===========================
+Never commit production contact submissions, database exports, API tokens, or real environment secrets.
 
-Confirm the final biography and founder photograph.
+## Deployment
 
-Confirm the Allan Gray competition name and approved award wording.
+Deployment uses Cloudflare Workers through Wrangler:
 
-Confirm the public email address and desired contact form destination.
+```bash
+npm run deploy
+```
 
-Confirm the pilot route and participating operators.
+Review `wrangler.toml`, `vite.config.ts`, and `worker/index.ts` before changing deployment behaviour. These files are load-bearing.
 
-Confirm which traction figures may be published.
+## AI/Codex contributors
 
-Confirm a domain name and social media links.
+Read `AGENTS.md` fully before making changes. It defines product-safety, founder-privacy, accessibility, performance, security, data-migration, and definition-of-done requirements.
