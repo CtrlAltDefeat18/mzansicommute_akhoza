@@ -1,72 +1,35 @@
-MzansiMove web project
-======================
+# MzansiCommute Project Operating System
 
-MzansiMove is a pre pilot mobility venture led by Ayanda Khoza.
+This package is the working source of truth for MzansiCommute's product, brand, engineering, and AI-assisted development.
 
-The first pilot is planned for Makhanda in the Eastern Cape.
+## Core documents
 
-The route, operational partners and verified traction are still to be confirmed.
+- `docs/NORTH_STAR.md` — the one-page decision compass.
+- `docs/CONSTITUTION.md` — non-negotiable principles for product, data, trust, safety, and AI-assisted work.
+- `docs/PRODUCT.md` — product thesis, value exchange, and product boundaries.
+- `docs/VISION.md` — long-term vision and future state.
+- `docs/MISSION.md` — what MzansiCommute does now and how it behaves while doing it.
+- `docs/ROADMAP.md` — phased roadmap from pilot validation to scaled data infrastructure.
+- `docs/USER_PERSONAS.md` — primary users, buyers, beneficiaries, and adoption order.
+- `docs/BRAND.md` — brand personality and reference points.
+- `docs/DESIGN_SYSTEM.md` — visual and interaction principles.
+- `docs/COPY_GUIDE.md` — language, claim, and tone rules.
+- `docs/ARCHITECTURE.md` — current technical architecture and boundaries.
+- `docs/DATABASE.md` — current data model and migration rules.
+- `docs/API.md` — current public API surface and conventions.
+- `docs/SECURITY.md` — privacy, founder-safety, secret-management, and abuse boundaries.
+- `docs/DEPLOYMENT.md` — deployment assumptions and production-safety rules.
+- `docs/OPERATIONS.md` — development and pilot operations.
+- `docs/AI_GUIDELINES.md` — how coding agents should work in the repository.
+- `docs/DECISIONS.md` — architecture/product decision log.
+- `CONTRIBUTING.md` — contributor workflow.
 
-Google Cloud Shell setup
-========================
+## Prompt library
 
-Upload the packaged tar file to Google Cloud Shell.
+Reusable prompts live in `/prompts`.
 
-Open the Cloud Shell terminal and extract the archive.
+These prompts supplement `AGENTS.md`; they do not override it.
 
-```bash
-tar -xzf MzansiMove_Cloud_Shell.tar.gz
-cd mzansimove
-npm ci
-npm run dev
-```
+## Status
 
-Cloud Shell will print a local port, normally port 3000.
-
-Use the Web preview menu and select Preview on port 3000.
-
-Editing workflow
-================
-
-Open the Cloud Shell editor from the toolbar.
-
-The main page content is in app/page.tsx.
-
-The design system is in app/globals.css.
-
-Site metadata is in app/layout.tsx.
-
-Changes should refresh automatically while the development server runs.
-
-Validation
-==========
-
-Run the production build before sharing or deploying changes.
-
-```bash
-npm run build
-```
-
-Current product status
-======================
-
-The website is a pre pilot portfolio and landing page.
-
-Its scorecard values are labelled as targets rather than verified traction.
-
-The contact form is a front end prototype and does not yet send messages.
-
-Founder inputs still needed
-===========================
-
-Confirm the final biography and founder photograph.
-
-Confirm the Allan Gray competition name and approved award wording.
-
-Confirm the public email address and desired contact form destination.
-
-Confirm the pilot route and participating operators.
-
-Confirm which traction figures may be published.
-
-Confirm a domain name and social media links.
+This is an internal working pack. Product, story, and brand content is based on the October 2026 founder working document. Technical documentation reflects the current repository context discussed during setup and deliberately marks unresolved items rather than pretending they are settled.

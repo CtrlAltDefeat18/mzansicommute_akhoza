@@ -1,0 +1,40 @@
+{
+  "generated_files": [
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/AI_GUIDELINES.md",
+    "docs/API.md",
+    "docs/ARCHITECTURE.md",
+    "docs/BRAND.md",
+    "docs/CONSTITUTION.md",
+    "docs/COPY_GUIDE.md",
+    "docs/DATABASE.md",
+    "docs/DECISIONS.md",
+    "docs/DEPLOYMENT.md",
+    "docs/DESIGN_SYSTEM.md",
+    "docs/MISSION.md",
+    "docs/NORTH_STAR.md",
+    "docs/OPERATIONS.md",
+    "docs/PRODUCT.md",
+    "docs/ROADMAP.md",
+    "docs/SECURITY.md",
+    "docs/USER_PERSONAS.md",
+    "docs/VISION.md",
+    "prompts/backend.md",
+    "prompts/bootstrap.md",
+    "prompts/database.md",
+    "prompts/debug.md",
+    "prompts/design.md",
+    "prompts/engineering.md",
+    "prompts/frontend.md",
+    "prompts/refactor.md",
+    "prompts/release.md",
+    "prompts/security.md"
+  ],
+  "count": 30,
+  "notes": [
+    "Product/brand docs derived from founder working material.",
+    "Technical docs reflect current repository setup discussed in this project and explicitly mark future/unapproved areas.",
+    "AGENTS.md is not overwritten in this package."
+  ]
+}
