@@ -14,7 +14,12 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "wrangler d1 migrations apply mzansimove-db --local",
     "db:migrate:prod": "wrangler d1 migrations apply mzansimove-db --remote",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "db:migrate:staging:local": "wrangler d1 migrations apply DB --env staging --local --config wrangler.toml",
+    "db:migrate:staging:remote": "wrangler d1 migrations apply DB --env staging --remote --config wrangler.toml",
+    "build:staging": "CLOUDFLARE_ENV=staging npm run build && node scripts/verify-staging-build.mjs",
+    "deploy:staging": "npm run build:staging && wrangler deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
