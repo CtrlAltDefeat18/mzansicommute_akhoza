@@ -44,3 +44,8 @@ Before production deployment:
 The Codex onboarding process reported that the default build/deployment configuration needs cleanup.
 
 Do not describe deployment as production-ready until that baseline is green.
+
+## Staging preparation
+
+See [STAGING.md](STAGING.md) for verified build paths, exact Cloudflare settings,
+explicit migration commands and outstanding baseline check failures.

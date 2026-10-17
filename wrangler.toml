@@ -1,5 +1,5 @@
 name = "mzansimove-web"
-main = "dist/_worker.js"
+main = "worker/index.ts"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
@@ -16,6 +16,7 @@ binding = "ASSETS"
 binding = "DB"
 database_name = "mzansimove-db"
 database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "drizzle"
 
 # Image optimisation binding — provided automatically by Cloudflare Workers
 # when the account has it enabled. The worker checks for its presence before
@@ -27,3 +28,28 @@ database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
 # values. Actual secrets (RESEND_API_KEY etc.) use: wrangler secret put KEY
 [vars]
 SITE_ENV = "production"
+
+
+# Bindings and vars are intentionally repeated: named environments do not inherit them.
+[env.staging]
+name = "mzansimove-web-staging"
+account_id = "1e74b583b7b4b00eebd1206ddfe47965"
+workers_dev = true
+compatibility_flags = ["nodejs_compat"]
+
+[env.staging.assets]
+directory = "dist/client"
+binding = "ASSETS"
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "mzansicommute-staging"
+database_id = "fc77b3c2-215e-4942-a783-d508079b0780"
+migrations_dir = "drizzle"
+
+[env.staging.vars]
+SITE_ENV = "staging"
+
+[env.staging.observability]
+enabled = true
+head_sampling_rate = 1
